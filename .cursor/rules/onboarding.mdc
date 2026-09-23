@@ -1,0 +1,11 @@
+---
+description: 克隆后必须先绑定用户自己的 Agent Mail，再请他转发信用卡账单
+alwaysApply: true
+---
+
+克隆本仓库后的用户，先完成这两步，完成前不要整理账单，也不要读邮箱：
+
+1. 要求用户绑定他自己的 Agent Mail：`agently-cli auth login`，然后 `agently-cli +me`。必须是用户自己的邮箱。未登录成功就停住。
+2. 告诉用户可以把招商银行或民生银行的信用卡电子账单转发到这个 Agent Mail。转发后由助手下载到 `bills/`，运行 `python mail-materials/build_ledger.py`，生成同一商户加总、一笔不漏的 HTML 看板。
+
+不要提交账单原件和生成的看板。

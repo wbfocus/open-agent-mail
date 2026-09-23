@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# 用户自己的账单和生成结果，不要进公开仓库
+bills/**
+!bills/.gitkeep
+docs/dashboard.html
+**/*dashboard-data.json
+**/_parsed.json

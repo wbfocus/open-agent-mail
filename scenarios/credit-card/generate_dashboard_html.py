@@ -6,11 +6,11 @@ import json
 import pathlib
 import sys
 
-ROOT = pathlib.Path(__file__).parent
-ARCHIVE = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT.parent / "bills"
+REPO = pathlib.Path(__file__).resolve().parents[2]
+ARCHIVE = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else REPO / "bills"
 DATA = json.loads((ARCHIVE / "dashboard-data.json").read_text(encoding="utf-8"))
 # Keep the page lighter: drop nothing critical, but transactions stay.
-OUT = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT.parent / "docs" / "dashboard.html"
+OUT = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else REPO / "docs" / "dashboard.html"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 
 payload = json.dumps(DATA, ensure_ascii=False)

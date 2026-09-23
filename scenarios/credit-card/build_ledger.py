@@ -382,7 +382,7 @@ def main() -> None:
     parser.add_argument("--input", default="bills", help="存放 .eml 的目录")
     parser.add_argument("--output", default="docs/dashboard.html", help="输出的 HTML 路径")
     args = parser.parse_args()
-    root = Path(__file__).resolve().parents[1]
+    root = Path(__file__).resolve().parents[2]
     build((root / args.input).resolve(), (root / args.output).resolve())
 
 
